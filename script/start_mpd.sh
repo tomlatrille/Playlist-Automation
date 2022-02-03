@@ -55,6 +55,6 @@ echo ""
 echo ""
 echo "Radio Startup complete..."
 echo ""
-echo "Connect to this http:// IP :8080/playlist"
+echo "Connect to this http:// IP :8000/playlist"
 echo ""
 
