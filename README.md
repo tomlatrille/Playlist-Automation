@@ -35,14 +35,14 @@ Software
 
 Install all Dependencies
 --------------------------------------
-`sudo apt-get install icecast2 mpd mpc apache2 php5 ntp`
+`sudo apt-get install icecast2 mpd mpc apache2 php7 ntp git`
 
 Create Folders an get repository
 --------------------------------------
 ```bash
 sudo mkdir /data
 cd /data
-sudo git clone https://github.com/seekwhencer/Playlist-Automation.git
+sudo git clone https://github.com/tomlatrille/Playlist-Automation.git
 sudo mv Playlist-Automation radio
 
 sudo mkdir /data/web
@@ -107,8 +107,8 @@ sudo /etc/init.d/icecast2 reload
 Configure MPD
 --------------------------------------
 ```bash
-sudo mv /etc/mpd.conf /data/radio/scripts/conf/mpd.conf
-sudo nano /data/radio/scripts/conf/mpd_playlist.conf
+sudo mv /etc/mpd.conf /data/radio/script/conf/mpd.conf
+sudo nano /data/radio/script/conf/mpd_playlist.conf
 ```
 - Use this
 ```bash
@@ -148,6 +148,8 @@ audio_output {
 - Replace user to pi:pi in
 ```bash
 sudo nano /etc/init.d/mpd
+
+chown pi:pi $PIDDIR
 ```
 
 - Disable MPD on system start
@@ -179,7 +181,7 @@ ServerName servername
 
 - PHP.ini
 ```bash
-sudo nano /etc/php5/apache2/php.ini
+sudo nano /etc/php/7.4/apache2/php.ini
 ```
 
 - Change
@@ -292,10 +294,10 @@ sudo nano /etc/ntp.conf
 
 - Comment out the existing servers and add these:
 ```bash
-server 0.de.pool.ntp.org
-server 1.de.pool.ntp.org
-server 2.de.pool.ntp.org
-server 3.de.pool.ntp.org
+server 0.fr.pool.ntp.org
+server 1.fr.pool.ntp.org
+server 2.fr.pool.ntp.org
+server 3.fr.pool.ntp.org
 ```
 - Restart NTP
 ```bash
